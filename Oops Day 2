@@ -1,0 +1,62 @@
+Git and GitHub – Project Management
+Why Git and GitHub?
+Git:
+A version control system.
+Tracks changes in project files.
+Helps manage daily work efficiently.
+GitHub:
+A cloud platform to store Git repositories.
+Enables collaboration and project backup.
+Used to submit daily internship tasks.
+
+Branches in GitHub
+Definition:
+A branch is an independent line of development.
+Why Branches Are Used:
+To work on new features safely.
+To avoid disturbing the main project.
+To experiment without risk.
+To enable team collaboration.
+Main Branch:
+Contains stable and final code.
+
+
+Common Git Commands Used
+git clone https://github.com/username/repo_name.git
+cd <repo_name>
+git add .
+git commit -m "message"
+git push origin main
+
+
+Topic 2: Inheritance 
+What is Inheritance?
+Definition:
+Inheritance is a mechanism in which one class acquires the properties and methods of another class.
+The existing class is called the Parent Class.
+The new class is called the Child Class.
+Promotes code reusability.
+Reduces redundancy.
+
+Why Inheritance is Used
+Reuse existing code.
+Improve maintainability.
+Represent real-world relationships.
+Support extensibility.
+
+Types of Inheritance in Python
+Single Inheritance
+One parent and one child class.
+Multilevel Inheritance
+A class derived from another derived class.
+Hierarchical Inheritance
+Multiple child classes inherit from one parent class.
+Multiple Inheritance
+One child class inherits from multiple parent classes.
+Hybrid Inheritance
+Combination of more than one type of inheritance.
+
+Real-World Example Explanation
+Parent Class: SocialMediaPost
+Child Class: InstagramPost
+InstagramPost automatically gets common behaviors and adds its own features.
