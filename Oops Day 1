@@ -1,0 +1,135 @@
+Topic 1: Classes and objects
+
+1.Class Definition, Object Instantiation
+
+Definition:
+Class Definition:
+A class is a blueprint for creating objects.
+It defines attributes (data) and methods (functions) common to all objects of that class.
+Object Instantiation:
+The process of creating an instance (object) of a class.
+Each object has its own copy of attributes and can use methods defined by the class.
+Syntax
+
+class class_name:
+    def __init__(self,p1,p2):
+        self.p1 = p1
+        self.p2 = p2
+       
+   
+    def method_name(self):
+        #Implementation of the method
+
+
+Object_name=class_name(p1,p2)
+object_name.method_name(self)
+
+2.Class Attributes and Methods
+Class Attributes:
+Shared by all instances of the class.
+Defined outside __init__ method.
+Changes made to class attributes reflect across all instances.
+Methods:
+Operates on the instance (self). Can access both class and instance attributes.
+3.Instance Variables vs. Class Variables
+Class Attribute: Shared across all instances. Changes affect all instances.
+Instance Attribute: Unique to each instance. Changes affect only that instance.
+4.__init__ Constructor Method
+Definition:
+The __init__ method is a constructor in Python.
+It is automatically invoked when a new object of the class is created.
+It initializes instance attributes to specific values.
+Syntax
+class ClassName:
+    def __init__(self, param1, param2, ...):
+        # Initialize instance attributes
+        self.attribute1 = param1
+        self.attribute2 = param2
+
+5.Self Parameter
+Definition:
+self is a reference to the current instance of the class.
+It is used to access instance attributes and methods.
+It allows each object to keep its own state.
+Syntax
+class ClassName:
+    def method_name(self, param1, param2):
+        self.attribute1 = param1
+        self.attribute2 = param2
+
+Memory Allocation of Objects
+Definition:
+Memory allocation is automatic in Python.
+You don't need to specify memory size manually, unlike languages like C or C++.
+Syntax
+id() function can be used to get the memory address of an object:
+print(id(object_name))
+
+
+
+
+
+
+
+Code snippet :
+
+# Class and object
+
+
+class Instagram:
+    def __init__(self,title, description):  
+        self.title = title
+        self.description = description
+        self.likes = 0
+    def display_title(self):
+        print("The title of the reel is ",self.title)
+    def display_description(self):
+        print("The description of the reel is ",self.description)
+    def display_likes(self):
+        print("The likes of the reel is ",self.likes)
+    def liked(self):
+        self.likes += 1
+    def disliked(self):
+        if self.likes > 0:
+            self.likes-=1
+
+
+reel1=Instagram("dancing","dancing with friends")
+# 0
+reel1.disliked() #0
+reel1.liked() #1
+
+
+
+
+reel2=Instagram("finance minister conference","finance minister conference with friends")
+reel1.liked() #2
+# 0
+reel2.liked() #1
+reel1.disliked() #1
+reel1.display_likes()
+reel2.display_likes()
+
+
+print(id(reel1))
+print(id(reel2))
+
+
+
+
+
+
+
+
+
+
+         
+
+
+
+
+
+
+   
+
+
