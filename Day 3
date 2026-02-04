@@ -1,0 +1,270 @@
+Topic 1: Single Inheritance
+1. What is Single Inheritance?
+Definition
+Single inheritance means:
+A child class inherits properties and methods from one parent class.
+
+
+Key Points
+One parent class → one child class
+
+
+Child class can access:
+
+
+Parent class variables
+
+
+Parent class methods
+
+
+Helps in code reusability
+
+
+Reduces repeated code
+
+
+Syntax
+class parent_class:
+    def __init__(self,p1,p2):
+        self.p1=p1
+        self.p2=p2
+    def method_name(self):
+        #implementation
+
+
+class child_class(parent_class):
+    def __init__(self,p3,p4):
+        self.p3=p3
+        self.p4=p4
+    def method_name(self):
+        #implementation
+       
+
+
+child_object=child_class(p1,p2)
+child_object.method_name()
+
+
+
+Topic 2: super() Method
+What is super()?
+Definition
+super() is used inside a child class to call:
+Parent class constructor (__init__)
+
+
+Parent class methods
+
+
+Why super() is Used?
+To reuse parent class initialization
+
+
+To avoid rewriting parent attributes in child class
+
+
+To ensure parent class variables are properly created
+
+
+Important Note
+If we do not call super().__init__(), parent class variables will not be initialized automatically.
+
+Example 1: Father and Son (Single Inheritance + super())
+Code
+class father:
+    def __init__(self,surname,name):
+        self.surname=surname
+        self.father_name=name
+
+    def display_surname(self):
+        print("surname is ", self.surname)
+
+    def display_father_name(self):
+        print("The fathername is ", self.father_name)
+
+
+class son(father):
+    def __init__(self,name,surname,father_name):
+        self.name=name
+        super().__init__(surname,father_name)
+
+    def display_name(self):
+        print("name is ", self.name)
+
+
+child_obj=son("john", "K","Rajesh")
+child_obj.display_father_name()
+child_obj.display_surname()
+child_obj.display_name()
+
+
+Explanation
+Parent Class (father)
+Stores:
+surname
+
+
+father_name
+
+
+Provides methods:
+display_surname()
+
+
+display_father_name()
+
+
+Child Class (son)
+Stores:
+name (child specific)
+
+
+Uses:
+super().__init__(surname,father_name) to initialize parent class variables
+
+
+So the child object can access:
+display_father_name()
+
+
+display_surname()
+
+
+display_name()
+
+
+
+Topic 3: Library Example (Single Inheritance)
+Example 2: Books and IssuedBooks
+Code
+class Books:
+    def __init__(self,title,author):
+        self.title=title
+        self.author=author
+
+    def display_books_details(self):
+        print("The title of the book is ",self.title)
+        print("The author of the book is ",self.author)
+
+
+class IssuedBooks(Books):
+    def __init__(self,title,author,issued_to,issued_date):
+        self.issued_to=issued_to
+        self.issued_date=issued_date
+        super().__init__(title, author)
+
+    def display_issued_books_details(self):
+        print("The title of the book is ",self.title)
+        print("The author of the book is ",self.author)
+        print("The name of the person issued to is", self.issued_to)
+        print("The date of issued is",self.issued_date)
+
+
+IB=IssuedBooks("Python","John","Students","04-02-26")
+IB.display_books_details()
+
+
+Explanation
+Parent Class: Books
+Contains:
+title
+
+
+author
+
+
+Method:
+display_books_details()
+
+
+Child Class: IssuedBooks
+Adds:
+issued_to
+
+
+issued_date
+
+
+Uses:
+super().__init__(title, author) to initialize parent attributes
+
+
+
+Topic 4: GitHub Branching (Team Workflow)
+What is a Branch?
+Definition
+A branch is a separate copy of the project code where we can work independently without disturbing the main project.
+
+Why Branching is Needed?
+Real Scenario: Two Developers Working
+If 2 developers work directly on main branch:
+Both will modify the same files
+
+
+When pushing code, conflicts may happen
+
+
+Example:
+Developer A updates login.py
+
+
+Developer B updates the same login.py
+
+
+When both push → Git gets confused which code is correct
+ This creates a merge conflict.
+
+
+
+How Branching Solves This Problem
+Developer A creates branch: feature-login
+
+
+Developer B creates branch: feature-ui
+
+
+Both work independently
+
+
+Later code is merged safely into main
+
+
+
+Topic 5: Git Branch Commands
+Branch Creation
+git branch branch_name
+
+Check Available Branches
+git branch
+
+Switch to Branch
+git checkout branch_name
+
+Create and Switch in One Command
+git checkout -b branch_name
+
+Push Branch to GitHub
+git push origin branch_name
+
+
+Daily Internship Workflow Using Branches
+Steps
+Clone repository
+
+
+Create a new branch for daily work
+
+
+Add changes
+
+
+Commit changes
+
+
+Push branch
+
+
+Merge later if required
+
+
